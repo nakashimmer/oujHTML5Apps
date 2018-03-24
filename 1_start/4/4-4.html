@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>canvasゲーム</title>
+	<meta name="viewport" content="width=320">
+	<style> 
+		*{margin:0; padding:0;}
+		body{text-align:center;}
+		canvas{border:1px solid gray;}
+	</style>
+</head>
+<body>
+	<p><canvas id="canvas" width="320" height="480"></canvas></p>
+	<script>
+		var canvas = document.getElementById("canvas"); 
+		var c = canvas.getContext("2d");
+
+		//変数の設定と初期化
+		var target = {x:250, y:100,dir:1};  	// ターゲット（位置と移動方向）
+		var player = {x:250, y:400};					// プレイヤー（位置）
+		var ball = {x:-10, y:-10};					// ボール（位置） 
+		var point = 0;											// 得点
+
+		//★
+
+		function anime(){									//アニメ関数
+			//★
+			//★
+			//★
+			//★
+			//★
+
+			//移動計算
+			//★
+			//★
+			//壁衝突計算
+			//★
+			//得点ゲット
+			//★
+			//★
+			//★
+		}
+
+		//独自関数
+		function myclear(){
+			//★
+		}
+
+		function mytarget(x,y){
+			//★
+			//★
+		}
+
+		function mypoint(point,x,y){
+			//★
+			//★
+			//★
+		}
+
+		function myplayer(x,y){
+			//★
+			//★
+		}
+	
+		function myball(x,y){
+			//★	
+			//★
+		}
+
+		//シュートするイベント処理(後述)
+		canvas.addEventListener("mousedown",function(e){
+			ball.x = player.x;
+			ball.y = player.y; 
+		});
+	
+		//マウスで自分キャラを動かすイベント処理(後述)
+		canvas.addEventListener("mousemove",function(e){
+			var rect = e.target.getBoundingClientRect();
+			player.x = e.clientX-rect.left;
+		});
+	</script>
+</body>
+</html>

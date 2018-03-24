@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>4.3</title>
+		<meta name="viewport" content="width=device-width">
+		<style>
+			#canvas{border:1px solid gray;}
+		</style>
+	</head>
+
+	<body>
+		<p><canvas id="canvas" width="600" height="600"></canvas></p>
+
+		<script>
+			var canvas = document.getElementById("canvas");
+			var c = canvas.getContext("2d");
+		
+			var obake = {x:300, y:300, dx:1, dy:1, s:100};
+		
+			var img=new Image();
+			img.src="image.png";
+		
+			setInterval(anime, 50);
+		
+			function anime(){
+		
+				//①消去
+					c.clearRect(0, 0, 600, 600);
+		
+				//②描画
+					c.drawImage(img, obake.x, obake.y, obake.s, obake.s);
+		
+				//③計算
+					obake.x += obake.dx;
+					obake.y += obake.dy;
+					if(obake.x<0 || 500<obake.x){obake.dx *= -1;}
+					if(obake.y<0 || 500<obake.y){obake.dy *= -1;}
+			}
+		</script>
+	</body>
+</html>

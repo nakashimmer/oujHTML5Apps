@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>3.2.1</title>
+		<meta name="viewport" content="width=device-width">
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<p id="n">数学オブジェクト</p>
+		
+		<script>
+			var n = document.getElementById("n");
+		
+			var n1 = Math.floor(3.14);								//切捨
+			var n2 = Math.round(3.14);								//四捨五入
+			var n3 = Math.ceil(3.14);									//切上
+			var n4 = Math.pow(2,2);										//累乗
+			var pi = Math.PI;												//円周率
+			var pi = Math.random();										//乱数
+		
+			n.innerHTML =n1;													//n2,n3… 他の変数に変更する
+		</script>
+	</body>
+</html>

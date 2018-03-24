@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>2.6</title>
+		<meta name="viewport" content="width=device-width">
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<input type="text" id="input1">
+		<button onclick="btn1();">ボタン1</button>
+		<p id="output1">出力</p>
+		
+		<script>
+			var input1 = document.getElementById("input1");
+			var output1 = document.getElementById("output1");
+		
+			var correct1 = 50;	//正解の値
+		
+			function btn1(){
+				var n1 = parseFloat(input1.value);
+				if(n1 === correct1){
+					output1.innerHTML = "正解";
+				}else{
+					output1.innerHTML = "残念";
+				}
+			}
+		</script>
+	</body>
+</html>

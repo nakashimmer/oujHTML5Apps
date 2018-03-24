@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>2.4</title>
+		<meta name="viewport" content="width=device-width">
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<input type="text" id="input1">
+		<button onclick="change1();">ボタン１</button>
+		<p id="output1">出力</p>
+		
+		<script>
+			var input1 = document.getElementById("input1");
+			var output1 = document.getElementById("output1");
+			function change1(){
+				output1.innerHTML = input1.value;
+			}
+		</script>
+	</body>
+</html>
