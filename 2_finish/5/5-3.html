@@ -12,17 +12,20 @@
 	<p><canvas id="canvas" width="300" height="300"></canvas></p>
 
 	<script>
-		var canvas = document.getElementById("canvas");
-		var c = canvas.getContext("2d");
-		var pos = {x:150,y:150,z:0};
+		var CANVAS = document.getElementById("canvas");
+		var CTX = CANVAS.getContext("2d");
+		var POS = {x:150,y:150,z:0};
 	
-		window.addEventListener("devicemotion",function(e){
-			pos.x += e.accelerationIncludingGravity.x;
-			pos.y -= e.accelerationIncludingGravity.y; 
-			pos.z += e.accelerationIncludingGravity.z; 
-			c.fillStyle = "red";
-			c.fillRect(pos.x-2,pos.y-2,4,4);
-		});
+		window.addEventListener(
+			"devicemotion",
+			(e)=>{
+				POS.x += e.accelerationIncludingGravity.x;
+				POS.y -= e.accelerationIncludingGravity.y; 
+				POS.z += e.accelerationIncludingGravity.z; 
+				CTX.fillStyle = "red";
+				CTX.fillRect(POS.x-2, POS.y-2, 4, 4);
+			}
+		);
 	</script>
 </body>
 </html>

@@ -13,18 +13,18 @@
 <body>
 	<p><canvas id="canvas" width="320" height="480"></canvas></p>
 	<script>
-		var canvas = document.getElementById("canvas"); 
-		var c = canvas.getContext("2d");
+		var CANVAS = document.getElementById("canvas"); 
+		var CTX = CANVAS.getContext("2d");
 
 		//変数の設定と初期化
-		var target = {x:250, y:100,dir:1};  	// ターゲット（位置と移動方向）
-		var player = {x:250, y:400};					// プレイヤー（位置）
-		var ball = {x:-10, y:-10};					// ボール（位置） 
+		var TARGET = {x:250, y:100,dir:1};  	// ターゲット（位置と移動方向）
+		var PLAYER = {x:250, y:400};					// プレイヤー（位置）
+		var BALL = {x:-10, y:-10};					// ボール（位置） 
 		var point = 0;											// 得点
 
 		//★
 
-		function anime(){									//アニメ関数
+		function loop(){									//アニメ関数
 			//★
 			//★
 			//★
@@ -69,16 +69,22 @@
 		}
 
 		//シュートするイベント処理(後述)
-		canvas.addEventListener("mousedown",function(e){
-			ball.x = player.x;
-			ball.y = player.y; 
-		});
+		CANVAS.addEventListener(
+			"mousedown",
+			(e)=>{
+				BALL.x = PLAYER.x;
+				BALL.y = PLAYER.y; 
+			}
+		);
 	
 		//マウスで自分キャラを動かすイベント処理(後述)
-		canvas.addEventListener("mousemove",function(e){
-			var rect = e.target.getBoundingClientRect();
-			player.x = e.clientX-rect.left;
-		});
+		CANVAS.addEventListener(
+			"mousemove",
+			(e)=>{
+				var RECT = e.target.getBoundingClientRect();
+				PLAYER.x = e.clientX-RECT.left;
+			}
+		);
 	</script>
 </body>
 </html>

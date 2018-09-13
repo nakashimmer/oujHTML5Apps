@@ -12,18 +12,21 @@
 	<p><canvas id="canvas" width="300" height="300"></canvas></p>
 	
 	<script>
-		var canvas=document.getElementById("canvas");
-		var c=canvas.getContext("2d");
-		var finger={x:150,y:150};
+		var CANVAS=document.getElementById("canvas");
+		var CTX=CANVAS.getContext("2d");
+		var FINGER={x:150,y:150};
 	
-		canvas.addEventListener("touchmove",function(e){
-			e.preventDefault();
-			var rect = e.target.getBoundingClientRect();
-			finger.x = e.touches[0].clientX-rect.left;
-			finger.y = e.touches[0].clientY-rect.top;
-			c.fillStyle = "green";
-			c.fillRect(finger.x-2,finger.y-2,4,4);
-		});
+		CANVAS.addEventListener(
+			"touchmove",
+			(e)=>{
+				e.preventDefault();
+				var RECT = e.target.getBoundingClientRect();
+				FINGER.x = e.touches[0].clientX-RECT.left;
+				FINGER.y = e.touches[0].clientY-RECT.top;
+				CTX.fillStyle = "green";
+				CTX.fillRect(FINGER.x-2, FINGER.y-2, 4, 4);
+			}
+		);
 	</script>
 </body>
 </html>

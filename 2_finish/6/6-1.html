@@ -56,43 +56,43 @@
 	</ul>
 	<script>
 		var nav;
-		var msg1 = document.getElementById("msg1");
-		var msg2 = document.getElementById("msg2");
-		var chizu = document.getElementById("chizu");
-		var ido = document.getElementById("ido");
-		var keido = document.getElementById("keido");
-		var kodo = document.getElementById("kodo");
-		var hogaku = document.getElementById("hogaku");
-		var sokudo = document.getElementById("sokudo");
-		var jusho = document.getElementById("jusho");
-		var michijun = document.getElementById("michijun");
+		var MSG1 = document.getElementById("msg1");
+		var MSG2 = document.getElementById("msg2");
+		var CHIZU = document.getElementById("chizu");
+		var IDO = document.getElementById("ido");
+		var KEIDO = document.getElementById("keido");
+		var KODO = document.getElementById("kodo");
+		var HOGAKU = document.getElementById("hogaku");
+		var SOKUDO = document.getElementById("sokudo");
+		var JUSHO = document.getElementById("jusho");
+		var MICHIJUN = document.getElementById("michijun");
 	 
 		//使用可否をチェック
 		if(navigator.geolocation){
-			msg1.innerHTML = "使用できます";
+			MSG1.innerHTML = "使用できます";
 		}else{
-			msg1.innerHTML = "使用できません";
+			MSG1.innerHTML = "使用できません";
 		}
 	
 		//Android用オプション
-		var option={enableHighAccuracy:true,timeout:10000,maximumAge:0};
+		var OPTION={enableHighAccuracy:true,timeout:10000,maximumAge:0};
 	
 		// 一次取得
 		function get1(){
-			navigator.geolocation.getCurrentPosition(seiko,shippai,option);
-			msg2.innerHTML = "一時情報取得済";
+			navigator.geolocation.getCurrentPosition(seiko,shippai,OPTION);
+			MSG2.innerHTML = "一時情報取得済";
 		}
 		
 		// 連続取得
 		function get2(){
-			nav = navigator.geolocation.watchPosition(seiko,shippai,option);
-			msg2.innerHTML = "継続情報取得中";
+			nav = navigator.geolocation.watchPosition(seiko,shippai,OPTION);
+			MSG2.innerHTML = "継続情報取得中";
 		}
 		
 		// 連続取得の終了
 		function get3(){
 			navigator.geolocation.clearWatch(nav);
-			msg2.innerHTML = "継続情報取得終了";
+			MSG2.innerHTML = "継続情報取得終了";
 		}
 		
 		//成功した場合の処理
@@ -105,36 +105,40 @@
 			var speed = position.coords.speed;
 			
 			//追加
-			ido.innerHTML = "緯度:" + latitude;
-			keido.innerHTML = "経度:" + longitude;
-			kodo.innerHTML = "高度:" + altitude;
-			hogaku.innerHTML = "方角:" + heading;
-			sokudo.innerHTML = "速度:" + speed;
+			IDO.innerHTML = "緯度:" + latitude;
+			KEIDO.innerHTML = "経度:" + longitude;
+			KODO.innerHTML = "高度:" + altitude;
+			HOGAKU.innerHTML = "方角:" + heading;
+			SOKUDO.innerHTML = "速度:" + speed;
 			
 			//地図描画
 			
-			var genzaichi = new google.maps.LatLng(latitude,longitude);
-			var gmap = new google.maps.Map(chizu,{zoom:12,center:genzaichi,
-				mapTypeId:google.maps.MapTypeId.ROADMAP}
+			var GENZAICHI = new google.maps.LatLng(latitude,longitude);
+			var GMAP = new google.maps.Map(
+				CHIZU,
+				{zoom:12,center:GENZAICHI,mapTypeId:google.maps.MapTypeId.ROADMAP}
 			);
 		
 			//マーカの表示
-			var marker = new google.maps.Marker({position:genzaichi,map:gmap});
-			var infoWindow = new google.maps.InfoWindow({content:"現在地"});
-			infoWindow.open(gmap,marker);
+			var MARKER= new google.maps.Marker({position:GENZAICHI,map:GMAP});
+			var INFOWINDOW = new google.maps.InfoWindow({content:"現在地"});
+			INFOWINDOW.open(GMAP,MARKER);
 		
 			//住所の取得
-			var geocoder = new google.maps.Geocoder();
-			geocoder.geocode({'latLng':genzaichi},function(res,status){
-				if(status != google.maps.GeocoderStatus.OK){
-					jusho.innerHTML = "失敗"+status;return;
+			var GEOCODER = new google.maps.Geocoder();
+			GEOCODER.geocode(
+				{'latLng':GENZAICHI},
+				(res,status)=>{
+					if(status != google.maps.GeocoderStatus.OK){
+						JUSHO.innerHTML = "失敗"+status;return;
+					}
+					JUSHO.innerHTML = res[0].formatted_address;
 				}
-				jusho.innerHTML = res[0].formatted_address;
-			});
+			);
 		
 			//道順
-			var tokyoTower = "35.65862127808128,139.74542051553726";
-			michijun.innerHTML = "<a target=_blank href='https://maps.google.com?dirflag=r&daddr="+tokyoTower+ "&saddr=" +latitude+ "," +longitude+ "'>東京タワーへの道順</a>";
+			var TOKYOTOWER= "35.65862127808128,139.74542051553726";
+			michijun.innerHTML = "<a target=_blank href='https://maps.google.com?dirflag=r&daddr="+TOKYOTOWER+ "&saddr=" +latitude+ "," +longitude+ "'>東京タワーへの道順</a>";
 		}
 	
 		//失敗

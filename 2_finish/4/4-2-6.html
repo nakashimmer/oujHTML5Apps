@@ -13,45 +13,45 @@
 		<p><canvas id="canvas" width="300" height="300"></canvas></p>
 		
 		<script>
-			var canvas = document.getElementById("canvas");
-			var c = canvas.getContext("2d");
+			var CANVAS = document.getElementById("canvas");
+			var CTX = CANVAS.getContext("2d");
 		
 			// ここに図形の描画のコードを記述します。
-			c.fillStyle = "red";								//塗色
-			c.fillRect(0,0,100,100);						//矩形(x,y,幅,高さ)
+			CTX.fillStyle = "red";								//塗色
+			CTX.fillRect(0,0,100,100);						//矩形(x,y,幅,高さ)
 
-			c.beginPath();											//パス開始
-			c.moveTo(150,0);										//開始点の(x,y)座標
-			c.lineTo(100,100);									//頂点の(x,y)座標
-			c.lineTo(200,100); 									//頂点の(x,y)座標
-			c.closePath(); 										//パス終了
-			c.fillStyle = "green";
-			c.fill();													//塗る
+			CTX.beginPath();											//パス開始
+			CTX.moveTo(150,0);										//開始点の(x,y)座標
+			CTX.lineTo(100,100);									//頂点の(x,y)座標
+			CTX.lineTo(200,100); 									//頂点の(x,y)座標
+			CTX.closePath(); 										//パス終了
+			CTX.fillStyle = "green";
+			CTX.fill();													//塗る
 
-			c.beginPath();
-			c.moveTo(200,0);
-			c.lineTo(300,100);
-			c.lineWidth = 1;										//線の幅
-			c.strokeStyle = "blue";							//線の色
-			c.stroke();												//線を引く
+			CTX.beginPath();
+			CTX.moveTo(200,0);
+			CTX.lineTo(300,100);
+			CTX.lineWidth = 1;										//線の幅
+			CTX.strokeStyle = "blue";							//線の色
+			CTX.stroke();												//線を引く
 
 			var angle1 = 10/180 * Math.PI ;
 			var angle2 = 200/180 * Math.PI ; 
-			c.beginPath();
-			c.moveTo(50,150);
-			c.arc(50, 150, 40, angle1, angle2, false);		//円弧のパス
-			c.closePath();
-			c.fillStyle = "skyblue";
-			c.fill();
-			
-			c.fillStyle = "black";
-			c.font = "100px serif";								//文字の大きさとフォント
-			c.fillText("Hello",0,300);						//文字の描画
+			CTX.beginPath();
+			CTX.moveTo(50,150);
+			CTX.arc(50, 150, 40, angle1, angle2, false);		//円弧のパス
+			CTX.closePath();
+			CTX.fillStyle = "skyblue";
+			CTX.fill();
 
-			var img = new Image();
-			img.src = "image.png";
-			img.onload = function(){
-				c.drawImage(img, 100, 100);
+			CTX.fillStyle = "black";
+			CTX.font = "100px serif";								//文字の大きさとフォント
+			CTX.fillText("Hello",0,300);						//文字の描画
+
+			var IMG = new Image();
+			IMG.src = "image.png";
+			IMG.onload = function(){
+				CTX.drawImage(IMG, 100, 100);
 			}
 
 		</script>

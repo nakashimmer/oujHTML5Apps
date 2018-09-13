@@ -13,12 +13,12 @@
 		<p><canvas id="canvas" width="300" height="300"></canvas></p>
 		
 		<script>
-			var canvas = document.getElementById("canvas");
-			var c = canvas.getContext("2d");
+			var CANVAS = document.getElementById("canvas");
+			var CTX = CANVAS.getContext("2d");
 		
 			// ここに図形の描画のコードを記述します。
-			c.fillStyle = "red";								//塗色
-			c.fillRect(0,0,100,100);						//矩形(x,y,幅,高さ)
+			CTX.fillStyle = "red";								//塗色
+			CTX.fillRect(0,0,100,100);						//矩形(x,y,幅,高さ)
 		</script>
 	</body>
 </html>

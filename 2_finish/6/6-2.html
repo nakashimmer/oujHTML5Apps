@@ -21,17 +21,17 @@
 	
 	
 	<script>
-		var k1 = document.getElementById("k1");	
-		var v1 = document.getElementById("v1");
+		var K1 = document.getElementById("k1");	
+		var V1 = document.getElementById("v1");
 	
 		function btn1(){
-			localStorage.setItem(k1.value , v1.value);
+			localStorage.setItem(K1.value , V1.value);
 		}
 		function btn2(){
-			v1.value = localStorage.getItem(k1.value);
+			V1.value = localStorage.getItem(K1.value);
 		}
 		function btn3(){
-			localStorage.removeItem(k1.value);
+			localStorage.removeItem(K1.value);
 		}
 		function btn4(){
 			localStorage.clear();
