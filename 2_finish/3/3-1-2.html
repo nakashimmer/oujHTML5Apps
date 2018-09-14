@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>3-1-2</title>
+		<meta name="viewport" content="width=device-width">
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<p id="date1">日付loading...</p>
+		
+		<script>
+			const DATE1 = document.getElementById("date1");
+		
+			setInterval(myclock,1000);
+
+			function myclock(){
+				const NOW = new Date();
+				let y = NOW.getFullYear();								//年
+				let m = NOW.getMonth()+1;									//月
+				let d = NOW.getDate();										//日
+				let w = NOW.getDay();											//曜日
+				let h = NOW.getHours();										//時
+				let i = NOW.getMinutes();									//分
+				let s = NOW.getSeconds();									//秒
+			
+				DATE1.innerHTML = y+"年"+m+"月"+d+"日"+h+"時"+i+"分"+s+"秒";
+			}
+				</script>
+	</body>
+</html>

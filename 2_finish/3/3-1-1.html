@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>3.1</title>
+		<title>3-1-1</title>
 		<meta name="viewport" content="width=device-width">
 		<style>
 		</style>
@@ -13,7 +13,6 @@
 		
 		<script>
 			const DATE1 = document.getElementById("date1");
-			const WEEK = new Array("日","月","火","水","木","金","土");
 		
 			const NOW = new Date();
 			let y = NOW.getFullYear();								//年
@@ -26,7 +25,7 @@
 			let ms= NOW.getMilliseconds();							//ミリ秒
 			let t= NOW.getTime();											//エポックミリ秒	
 		
-			DATE1.innerHTML = NOW;										//y,m…他の変数に変更する
+			DATE1.innerHTML = y+"年"+m+"月"+d+"日"+h+"時"+i+"分"+s+"秒"
 		</script>
 	</body>
 </html>
