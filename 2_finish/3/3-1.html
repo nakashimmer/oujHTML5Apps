@@ -12,19 +12,19 @@
 		<p id="date1">日付loading...</p>
 		
 		<script>
-			var DATE1 = document.getElementById("date1");
-			var WEEK = new Array("日","月","火","水","木","金","土");
+			const DATE1 = document.getElementById("date1");
+			const WEEK = new Array("日","月","火","水","木","金","土");
 		
-			var NOW = new Date();
-			var y = NOW.getFullYear();								//年
-			var m = NOW.getMonth()+1;									//月
-			var d = NOW.getDate();										//日
-			var w = NOW.getDay();											//曜日
-			var h = NOW.getHours();										//時
-			var i = NOW.getMinutes();									//分
-			var s = NOW.getSeconds();									//秒
-			var ms= NOW.getMilliseconds();							//ミリ秒
-			var t= NOW.getTime();											//エポックミリ秒	
+			const NOW = new Date();
+			let y = NOW.getFullYear();								//年
+			let m = NOW.getMonth()+1;									//月
+			let d = NOW.getDate();										//日
+			let w = NOW.getDay();											//曜日
+			let h = NOW.getHours();										//時
+			let i = NOW.getMinutes();									//分
+			let s = NOW.getSeconds();									//秒
+			let ms= NOW.getMilliseconds();							//ミリ秒
+			let t= NOW.getTime();											//エポックミリ秒	
 		
 			DATE1.innerHTML = NOW;										//y,m…他の変数に変更する
 		</script>

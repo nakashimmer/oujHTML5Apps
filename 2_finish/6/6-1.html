@@ -55,17 +55,17 @@
 		<li id="michijun">東京タワーへの道順</li>
 	</ul>
 	<script>
-		var nav;
-		var MSG1 = document.getElementById("msg1");
-		var MSG2 = document.getElementById("msg2");
-		var CHIZU = document.getElementById("chizu");
-		var IDO = document.getElementById("ido");
-		var KEIDO = document.getElementById("keido");
-		var KODO = document.getElementById("kodo");
-		var HOGAKU = document.getElementById("hogaku");
-		var SOKUDO = document.getElementById("sokudo");
-		var JUSHO = document.getElementById("jusho");
-		var MICHIJUN = document.getElementById("michijun");
+		let nav;
+		const MSG1 = document.getElementById("msg1");
+		const MSG2 = document.getElementById("msg2");
+		const CHIZU = document.getElementById("chizu");
+		const IDO = document.getElementById("ido");
+		const KEIDO = document.getElementById("keido");
+		const KODO = document.getElementById("kodo");
+		const HOGAKU = document.getElementById("hogaku");
+		const SOKUDO = document.getElementById("sokudo");
+		const JUSHO = document.getElementById("jusho");
+		const MICHIJUN = document.getElementById("michijun");
 	 
 		//使用可否をチェック
 		if(navigator.geolocation){
@@ -75,7 +75,7 @@
 		}
 	
 		//Android用オプション
-		var OPTION={enableHighAccuracy:true,timeout:10000,maximumAge:0};
+		const OPTION={enableHighAccuracy:true,timeout:10000,maximumAge:0};
 	
 		// 一次取得
 		function get1(){
@@ -98,11 +98,11 @@
 		//成功した場合の処理
 		function seiko(position){
 			//修正
-			var latitude = position.coords.latitude;
-			var longitude = position.coords.longitude;
-			var altitude = position.coords.altitude;
-			var heading = position.coords.heading;
-			var speed = position.coords.speed;
+			let latitude = position.coords.latitude;
+			let longitude = position.coords.longitude;
+			let altitude = position.coords.altitude;
+			let heading = position.coords.heading;
+			let speed = position.coords.speed;
 			
 			//追加
 			IDO.innerHTML = "緯度:" + latitude;
@@ -113,19 +113,19 @@
 			
 			//地図描画
 			
-			var GENZAICHI = new google.maps.LatLng(latitude,longitude);
-			var GMAP = new google.maps.Map(
+			const GENZAICHI = new google.maps.LatLng(latitude,longitude);
+			const GMAP = new google.maps.Map(
 				CHIZU,
 				{zoom:12,center:GENZAICHI,mapTypeId:google.maps.MapTypeId.ROADMAP}
 			);
 		
 			//マーカの表示
-			var MARKER= new google.maps.Marker({position:GENZAICHI,map:GMAP});
-			var INFOWINDOW = new google.maps.InfoWindow({content:"現在地"});
+			const MARKER= new google.maps.Marker({position:GENZAICHI,map:GMAP});
+			const INFOWINDOW = new google.maps.InfoWindow({content:"現在地"});
 			INFOWINDOW.open(GMAP,MARKER);
 		
 			//住所の取得
-			var GEOCODER = new google.maps.Geocoder();
+			const GEOCODER = new google.maps.Geocoder();
 			GEOCODER.geocode(
 				{'latLng':GENZAICHI},
 				(res,status)=>{
@@ -137,7 +137,7 @@
 			);
 		
 			//道順
-			var TOKYOTOWER= "35.65862127808128,139.74542051553726";
+			const TOKYOTOWER= "35.65862127808128,139.74542051553726";
 			michijun.innerHTML = "<a target=_blank href='https://maps.google.com?dirflag=r&daddr="+TOKYOTOWER+ "&saddr=" +latitude+ "," +longitude+ "'>東京タワーへの道順</a>";
 		}
 	

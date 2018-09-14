@@ -13,8 +13,8 @@
 		<p><canvas id="canvas" width="300" height="300"></canvas></p>
 		
 		<script>
-			var CANVAS = document.getElementById("canvas");
-			var CTX = CANVAS.getContext("2d");
+			const CANVAS = document.getElementById("canvas");
+			const CTX = CANVAS.getContext("2d");
 		
 			// ここに図形の描画のコードを記述します。
 			CTX.fillStyle = "red";								//塗色
@@ -35,8 +35,8 @@
 			CTX.strokeStyle = "blue";							//線の色
 			CTX.stroke();												//線を引く
 
-			var angle1 = 10/180 * Math.PI ;
-			var angle2 = 200/180 * Math.PI ; 
+			let angle1 = 10/180 * Math.PI ;
+			let angle2 = 200/180 * Math.PI ; 
 			CTX.beginPath();
 			CTX.moveTo(50,150);
 			CTX.arc(50, 150, 40, angle1, angle2, false);		//円弧のパス

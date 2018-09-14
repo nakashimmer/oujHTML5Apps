@@ -16,18 +16,18 @@
 		<p id="result">結果</p>
 		
 		<script>
-			var INPUT1 = document.getElementById("input1");
-			var RESULT = document.getElementById("result");
+			const INPUT1 = document.getElementById("input1");
+			const RESULT = document.getElementById("result");
 		
-			var n = Math.floor(Math.random()*10);
+			let n = Math.floor(Math.random()*10);
 		
 			function btn1(){
-				var n1 = parseFloat(INPUT1.value);
-		
+				let n1 = parseFloat(INPUT1.value);
+				let judge;
 				if(n1 === n){
-					var judge = "Good";
+					judge = "Good";
 				}else{
-					var judge = "NG";
+					judge = "NG";
 				}
 		
 				RESULT.innerHTML = judge;

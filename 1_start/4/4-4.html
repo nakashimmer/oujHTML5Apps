@@ -13,14 +13,14 @@
 <body>
 	<p><canvas id="canvas" width="320" height="480"></canvas></p>
 	<script>
-		var CANVAS = document.getElementById("canvas"); 
-		var CTX = CANVAS.getContext("2d");
+		const CANVAS = document.getElementById("canvas"); 
+		const CTX = CANVAS.getContext("2d");
 
 		//変数の設定と初期化
-		var TARGET = {x:250, y:100,dir:1};  	// ターゲット（位置と移動方向）
-		var PLAYER = {x:250, y:400};					// プレイヤー（位置）
-		var BALL = {x:-10, y:-10};					// ボール（位置） 
-		var point = 0;											// 得点
+		const TARGET = {x:250, y:100,dir:1};  	// ターゲット（位置と移動方向）
+		const PLAYER = {x:250, y:400};					// プレイヤー（位置）
+		const BALL = {x:-10, y:-10};					// ボール（位置） 
+		const point = 0;											// 得点
 
 		//★
 
@@ -81,7 +81,7 @@
 		CANVAS.addEventListener(
 			"mousemove",
 			(e)=>{
-				var RECT = e.target.getBoundingClientRect();
+				const RECT = e.target.getBoundingClientRect();
 				PLAYER.x = e.clientX-RECT.left;
 			}
 		);

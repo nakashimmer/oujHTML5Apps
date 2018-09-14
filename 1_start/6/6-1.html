@@ -55,17 +55,17 @@
 		<★>
 	</ul>
 	<script>
-		var nav;
-		var MSG1 = document.getElementById("msg1");
-		var MSG2 = document.getElementById("msg21");
-		var CHIZU = document.getElementById("chizu");
-		var IDO = document.getElementById("ido");
-		var KEIDO = document.getElementById("keido");
-		var KODO = document.getElementById("kodo");
-		var HOGAKU = document.getElementById("hogaku");
-		var SOKUDO = document.getElementById("sokudo");
-		var JUSHO = document.getElementById("jusho");
-		var MICHIJUN = document.getElementById("michijun");
+		let nav;
+		const MSG1 = document.getElementById("msg1");
+		const MSG2 = document.getElementById("msg21");
+		const CHIZU = document.getElementById("chizu");
+		const IDO = document.getElementById("ido");
+		const KEIDO = document.getElementById("keido");
+		const KODO = document.getElementById("kodo");
+		const HOGAKU = document.getElementById("hogaku");
+		const SOKUDO = document.getElementById("sokudo");
+		const JUSHO = document.getElementById("jusho");
+		const MICHIJUN = document.getElementById("michijun");
 	 
 		//使用可否をチェック
 		if(★){
@@ -75,7 +75,7 @@
 		}
 	
 		//Android用オプション
-		var OPTION={enableHighAccuracy:true,timeout:10000,maximumAge:0};
+		const OPTION={enableHighAccuracy:true,timeout:10000,maximumAge:0};
 	
 		// 一次取得
 		function get1(){
@@ -112,20 +112,20 @@
 			
 			//地図描画
 			
-			var GENZAICHI = new google.maps.LatLng(latitude,longitude);
-			var GMAP = new google.maps.Map(
+			const GENZAICHI = new google.maps.LatLng(latitude,longitude);
+			const GMAP = new google.maps.Map(
 				CHIZU,
 				{zoom:12,center:GENZAICHI,
 				mapTypeId:google.maps.MapTypeId.ROADMAP}
 			);
 		
 			//マーカの表示
-			var marker = new google.maps.Marker({position:genzaichi,map:gmap});
-			var infoWindow = new google.maps.InfoWindow({content:"現在地"});
+			const marker = new google.maps.Marker({position:genzaichi,map:gmap});
+			const infoWindow = new google.maps.InfoWindow({content:"現在地"});
 			infoWindow.open(gmap,marker);
 		
 			//住所の取得
-			var geocoder = new google.maps.Geocoder();
+			const geocoder = new google.maps.Geocoder();
 			geocoder.geocode({'latLng':genzaichi},function(res,status){
 				if(status != google.maps.GeocoderStatus.OK){
 					jusho.innerHTML = "失敗"+status;return;
@@ -134,7 +134,7 @@
 			});
 		
 			//道順
-			var tokyoTower = "35.65862127808128,139.74542051553726";
+			const tokyoTower = "35.65862127808128,139.74542051553726";
 			michijun.innerHTML = "<a target=_blank href='https://maps.google.com?dirflag=r&daddr="+tokyoTower+ "&saddr=" +latitude+ "," +longitude+ "'>東京タワーへの道順</a>";
 		}
 	
