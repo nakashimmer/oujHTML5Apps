@@ -57,12 +57,13 @@
 				color:white;
 			}
 
-			div:first-of-type{
-				grid-column: 1/4;
+			div:first-of-type div:nth-of-type(2){
+				grid-column: 2/5;
 			}
+	
 			.clm{
 				columns: 3;
-				list-style-type:decimal;
+				list-style:decimal;
 			}
 
 			a:hover{
@@ -87,40 +88,43 @@
 
 		<div id="wrap">
 				<nav>
+					<div>
+						<h2>はじめに</h2>
+						<ol>
+							<li><a href="http://www.ouj.ac.jp/hp/eizou/mado/tv/2014.html">大学の窓(26.5.27)</a></li>
+							<li><a href="https://github.com/nakashimmer/oujHTML5Apps/archive/master.zip" class="link">1. サンプルZIPダウンロード</a></li>
+
+							<li><a class="link" href="https://ide.c9.io/ouj0/html5application">2. 講師ページ(ID:ouj1,PW:文京。右下⚙クリックで文字の大きさ調整)</a></li>
+							<li><a class="link" href="https://cs264.xbit.jp/~w074265/practice/group1/">3. ファイル転送</a></li>
+						</ol>
+					</div>
 
 
 					<div>
 						<h2>オリエンテーション</h2>
 						<ol class="clm"> 
+							<li><input value="chrome://dino"></li>
+							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/calculate/kesan/index.html">1. 計算機</a></li>
+							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/calculate/bmi/index.html">2. BMI</a></li>
+							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/3dGraphicsEffects/canvas/physics/parabola/index2.html">3. 放物線</a></li>
+							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/3dGraphicsEffects/canvas/touch/index.html">4. ゲーム</a></li>
+							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/calculate/maimai/index.html">5. 500px競争</a></li>
 
-							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/calculate/kesan/index.html">計算機</a></li>
-							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/calculate/bmi/index.html">BMI</a></li>
-							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/3dGraphicsEffects/canvas/physics/parabola/index2.html">放物線</a></li>
-							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/3dGraphicsEffects/canvas/touch/index.html">マリオのようなゲーム</a></li>
-							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/calculate/maimai/index.html">500px競争</a></li>
+							<li><a target="_blank" href="https://www.google.com/doodles?q=interactive">6. Google Doodles</a></li>
+							<li><a target="_blank" href="https://www.google.com/doodles/roswells-66th-anniversary">7. UFO</a></li>
+							<li><a target="_blank" href="http://helloracer.com/webgl/">8. Hello racer</a></li>
 
-							<li><a target="_blank" href="https://www.google.com/doodles?q=interactive">Google Doodles</a></li>
-							<li><a target="_blank" href="https://www.google.com/doodles/roswells-66th-anniversary">UFO</a></li>
-							<li><a target="_blank" href="http://helloracer.com/webgl/">Hello racer</a></li>
+							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/deviceAccess/webaudio/synthesizer/index.html">9. シンセ</a></li>
+							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/deviceAccess/gps/index.html">10. GPS</a></li>
+							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/deviceAccess/speechSynthesis/index.html">11. テキスト読み上げと音声認識</a></li>
 
-							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/deviceAccess/webaudio/synthesizer/index.html">シンセ</a></li>
-							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/deviceAccess/gps/index.html">GPS</a></li>
-							<li><a target="_blank" href="https://tokyoappwork.shop/showcase/JS/deviceAccess/speechSynthesis/index.html">テキスト読み上げと音声認識</a></li>
-
-							<li><a target="_blank" href="https://about.yahoo.co.jp/pr/release/2015/09/07a/">Yahoo!かんたんゲーム</a></li>
-							<li><a target="_blank" href="https://corp.rakuten.co.jp/news/press/2017/0404_01.html">楽天RGames</a></li>
+							<li><a target="_blank" href="https://about.yahoo.co.jp/pr/release/2015/09/07a/">12. Yahoo!かんたんゲーム</a></li>
+							<li><a target="_blank" href="https://corp.rakuten.co.jp/news/press/2017/0404_01.html">13. 楽天RGames</a></li>
 						</ol>
 					</div>
 
 
-					<div>
-						<h2>はじめに</h2>
-						<ol>
-							<li><a href="http://www.ouj.ac.jp/hp/eizou/mado/tv/2014.html">大学の窓(26.5.27)</a></li>
-							<li><a href="https://github.com/nakashimmer/oujHTML5Apps/archive/master.zip" class="link">サンプルZIPファイル</a></li>
-							<li><a  class="link" href="https://cs264.xbit.jp/~w074265/practice/group1/">練習ページ</a></li>
-						</ol>
-					</div>
+
 
 					<div>
 						<h2>1. 製作準備とHTML、CSS復習</h2>
@@ -147,7 +151,7 @@
 							<li><a target="_blank" href="2_finish/3/3-1-1.html">3-1-1</a></li>
 							<li><a target="_blank" href="2_finish/3/3-1-2.html">3-1-2</a></li>
 							<li><a target="_blank" href="2_finish/3/3-2-1.html">3-2-1</a></li>
-							<li><a target="_blank" href="2_finish/3/3-2-2.html">3-2-2</a></li>
+							<li><a target="_blank" href="2_finish/3/3-2-3.html">3-2-3</a></li>
 						</ol>
 					</div>
 
