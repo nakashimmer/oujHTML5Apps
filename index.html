@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 	<head>
 		<meta charset=utf-8>
@@ -7,226 +6,246 @@
 		<meta name="viewport" content="width=device-width">
 		<style>
 			@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
-			*{
-				margin:0;padding:0;
-				margin:0;padding:0;line-height:1.5em;
-				font-size:16px;text-decoration:none;
-				color:gray;
+
+			* {
+				margin: 0;
+				padding: 0;
+				margin: 0;
+				padding: 0;
+				line-height: 1.5em;
+				font-size: 16px;
+				text-decoration: none;
+				color: gray;
 				font-family: 'Noto Sans Japanese', sans-serif;
 				/* list-style-position: inside;*/
 				list-style-type: none;
 			}
 
-			a{
-				color:gray;
-				padding:0.1em;
+			a {
+				color: gray;
+				padding: 0.1em;
 			}
-			a:visited{color:gray;}
-			small a,small a:visited{color:white;}
 
-			h1{
-				background-color:blue;color:white;
-				font-size:1.4em;
+			a:visited {
+				color: gray;
+			}
+
+			small a,
+			small a:visited {
+				color: white;
+			}
+
+			h1 {
+				background-color: blue;
+				color: white;
+				font-size: 1.4em;
 				text-align: center;
 				padding: 0.5em;
 			}
 
-
-			nav{
+			nav {
 				display: grid;
-				grid-template-columns:1fr 1fr 1fr 1fr;
+				grid-template-columns: 1fr 1fr 1fr 1fr;
 			}
-			div{
-				border:1px dotted gray;
-				padding:0em;
+
+			div {
+				border: 1px dotted gray;
+				padding: 0em;
 			}
-			h2{
-				background-color:gray;
-				color:white;
-				padding:0.5em;
+
+			h2 {
+				background-color: gray;
+				color: white;
+				padding: 0.5em;
 			}
-			ol{
-				margin:1em;
+
+			ol {
+				margin: 1em;
 			}
-			footer{
-				background-color:blue;
-				padding:0.5em;
+
+			footer {
+				background-color: blue;
+				padding: 0.5em;
 				text-align: center;
 			}
-			footer small,footer a{
-				color:white;
-			}
-			
 
-			ol.dec li{
+			footer small,
+			footer a {
+				color: white;
+			}
+
+			ol.dec li {
 				list-style-type: decimal;
-				margin-left:1.5em;
+				margin-left: 1.5em;
 			}
 
-			.bold{
+			.bold {
 				font-weight: bold;
 			}
 
-
-			div:first-of-type div:nth-of-type(2){
+			div:first-of-type div:nth-of-type(2) {
 				grid-column: 2/5;
 			}
-	
-			.clm{
+
+			.clm {
 				columns: 3;
-				list-style:decimal;
+				list-style: decimal;
 			}
 
-			a:hover{
-				background-color:lime;
-				color:white;
+			a:hover {
+				background-color: lime;
+				color: white;
 			}
 
-			@media(max-width:800px){
-				nav{display: block;}
-				.clm{columns: 2;}
+			@media(max-width:800px) {
+				nav {
+					display: block;
+				}
+
+				.clm {
+					columns: 2;
+				}
 			}
 
-			@media(max-width:500px){
-				.clm{columns: 1;}
+			@media(max-width:500px) {
+				.clm {
+					columns: 1;
+				}
 			}
 
 			/*スクロールバーを非表示 (除Firefox)*/
-			::-webkit-scrollbar{display:none;}
-			*{-ms-overflow-style:none;}
+			::-webkit-scrollbar {
+				display: none;
+			}
 
+			* {
+				-ms-overflow-style: none;
+			}
 		</style>
 	</head>
 	<body>
 		<header>
 			<h1>放送大学面接授業「HTML5アプリケーション」</h1>
 		</header>
-
 		<div id="wrap">
-				<nav>
-					<div>
-						<h2>はじめに</h2>
-						<ol class="dec">
-							<li><a href="https://github.com/nakashimmer/oujHTML5Apps/archive/master.zip" class="link">サンプルZIPダウンロード</a></li>
-							<li><a href="https://vscode.dev/" class="link">Web版VSCode</a></li>
-							<li><a class="link" target="_blank" href="">ファイル転送</a></li>
-						</ol>
-					</div>
-
-
-					<div>
-						<h2>オリエンテーション</h2>
-						<ol class="clm dec"> 
-							<li><input value="chrome://dino"></li>
-							<li><a target="_blank" href="https://nakashimmer.github.io/showcase/JS/calculate/kesan/index.html">計算機</a></li>
-							<li><a target="_blank" href="https://nakashimmer.github.io/showcase/JS/calculate/bmi/index.html">BMI</a></li>
-							<li><a target="_blank" href="https://nakashimmer.github.io/showcase/JS/3dGraphicsEffects/canvas/physics/parabola/index2.html">放物線</a></li>
-							<li><a target="_blank" href="https://nakashimmer.github.io/showcase/JS/3dGraphicsEffects/canvas/touch/index.html">ゲーム</a></li>
-							<li><a target="_blank" href="https://nakashimmer.github.io/showcase/JS/calculate/maimai/index.html">500px競争</a></li>
-
-							<li><a target="_blank" href="https://www.google.com/doodles?q=interactive">Google Doodles</a></li>
-							<li><a target="_blank" href="https://www.google.com/doodles/roswells-66th-anniversary">UFO</a></li>
-
-							<li><a target="_blank" href="https://nakashimmer.github.io/showcase/JS/deviceAccess/webaudio/synthesizer/index.html">シンセ</a></li>
-							<li><a target="_blank" href="https://nakashimmer.github.io/showcase/JS/deviceAccess/gps/index.html">GPS</a></li>
-							<li><a target="_blank" href="https://nakashimmer.github.io/showcase/JS/deviceAccess/speechSynthesis/recognition/index.html">テキスト読上と音声認識</a>(要マイク)</li>
-
-							<li><a target="_blank" href="https://games.yahoo.co.jp/play/">Yahoo!かんたんゲーム</a></li>
-							<li><a target="_blank" href="https://www.google.com/doodles?hl=ja&q=interactive">Google doodles</a></li>
-						</ol>
-					</div>
-
-
-
-
-					<div>
-						<h2>1. 製作準備とHTML、CSS復習</h2>
-						<ol>
-							<li><a target="_blank" href="2_finish/1/1-2.html">1-2</a></li>
-						</ol>
-					</div>
-					
-					<div>
-						<h2>2. JavaScript</h2>
-						<ol>
-							<li><a target="_blank" href="2_finish/2/2-2.html">2-2</a></li>
-							<li><a target="_blank" href="2_finish/2/2-3.html">2-3</a></li>
-							<li><a target="_blank" href="2_finish/2/2-4.html">2-4</a></li>
-							<li><a target="_blank" href="2_finish/2/2-5-1.html">2-5-1</a></li>
-							<li><a target="_blank" href="2_finish/2/2-5-2.html">2-5-2</a></li>
-							<li><a target="_blank" href="2_finish/2/2-6.html">2-6</a></li>		
-						</ol>
-					</div>
-
-					<div>
-						<h2>3. Date,Math</h2>
-						<ol>
-							<li><a target="_blank" href="2_finish/3/3-1-1.html">3-1-1</a></li>
-							<li><a target="_blank" href="2_finish/3/3-1-2.html">3-1-2</a></li>
-							<li><a target="_blank" href="2_finish/3/3-2-1.html">3-2-1</a></li>
-							<li><a target="_blank" href="2_finish/3/3-2-3.html">3-2-3</a></li>
-						</ol>
-					</div>
-
-					<div>
-						<h2>4. Canvas(2d)</h2>
-						<ol>
-							<li><a target="_blank" href="2_finish/4/4-1.html">4-1</a></li>
-							<li><a target="_blank" href="2_finish/4/4-2-1.html">4-2-1</a></li>
-							<li><a target="_blank" href="2_finish/4/4-2-2.html">4-2-2</a></li>
-							<li><a target="_blank" href="2_finish/4/4-2-3.html">4-2-3</a></li>
-							<li><a target="_blank" href="2_finish/4/4-2-4.html">4-2-4</a></li>
-							<li><a target="_blank" href="2_finish/4/4-2-5.html">4-2-5</a></li>
-							<li><a target="_blank" href="2_finish/4/4-2-6.html">4-2-6</a></li>
-							<li><a target="_blank" href="2_finish/4/4-3.html">4-3</a></li>
-							<li><a target="_blank" href="2_finish/4/4-4.html">4-4</a></li>
-							<li><a target="_blank" href="2_finish/4/image.png">image.png</a></li>
-						</ol>
-					</div>
-
-					<div>
-						<h2>5. タッチ・重力センサ</h2>
-						<ol>
-							<li><a target="_blank" href="2_finish/5/5-1.html">5-1</a></li>
-							<li><a target="_blank" href="2_finish/5/5-2.html">5-2</a></li>
-							<li><a target="_blank" href="2_finish/5/5-3.html">5-3</a></li>
-						</ol>
-					</div>
-
-					<div>
-						<h2>6. GeoLocationとWebStorage</h2>
-						<ol>
-							<li><a target="_blank" href="2_finish/6/6-1.html">6-1</a></li>
-							<li><a target="_blank" href="2_finish/6/6-2.html">6-2</a></li>
-						</ol>
-					</div>
-
-					<div>
-						<h2>7. マルチメディア</h2>
-						<ol>
-							<li><a target="_blank" href="2_finish/7/7-1.html">7-1</a></li>
-							<li><a target="_blank" href="2_finish/7/7-2.html">7-2</a></li>
-							<li><a target="_blank" href="2_finish/7/audio.mp3">audio.mp3</a></li>
-							<li><a target="_blank" href="2_finish/7/video.m4v">video.m4v</a></li>
-						</ol>
-					</div>
-
-					<div>
-						<h2>参考URL</h2>
-						<ol>
-							<li><a target="_blank" href=https://ja.monaca.io/>monaca</a></li>
-							<li><a target="_blank" href=http://jsdo.it/>jsdo.it</a></li>
-							<li><a target="_blank" href="https://www.facebook.com/pg/OUJHTML5/">HTML5勉強会</a></li>
-							<li><a target="_blank" href="https://webtechpromo.org">検定科目はHTML5</a></li>
-							<li><a target="_blank" href="https://www.youtube.com/watch?v=5VQkIOMMV_o">WoT</a></li>
-						</ol>
-					</div>
-				</nav>
-			</div>
-			<footer>
-				<small><a href="http://jsdo.it/nakashimmer/codes">2018 (C) 中島俊治</a></small>
-			</footer>
-	
+			<nav>
+				<div>
+					<h2>はじめに</h2>
+					<ol class="dec">
+						<li><a href="https://github.com/nakashimmer/oujHTML5Apps/archive/master.zip" class="link">サンプルZIPダウンロード</a>
+						</li>
+						<li><a href="https://vscode.dev/" class="link">Web版VSCode</a></li>
+						<li><a href="https://note.com/_nakashimmer_/n/n8a5563d15fea" class="link">VSCodeの扱い方</a></li>
+						<li><a class="link" target="_blank" href="">ファイル転送</a></li>
+					</ol>
+				</div>
+				<div>
+					<h2>オリエンテーション</h2>
+					<ol class="clm dec">
+						<li><input value="chrome://dino"></li>
+						<li><a target="_blank" href="https://nakashimmer.github.io/showcase/JS/calculate/kesan/index.html">計算機</a>
+						</li>
+						<li><a target="_blank" href="https://nakashimmer.github.io/showcase/JS/calculate/bmi/index.html">BMI</a>
+						</li>
+						<li><a target="_blank"
+								href="https://nakashimmer.github.io/showcase/JS/3dGraphicsEffects/canvas/physics/parabola/index2.html">放物線</a>
+						</li>
+						<li><a target="_blank"
+								href="https://nakashimmer.github.io/showcase/JS/3dGraphicsEffects/canvas/touch/index.html">ゲーム</a></li>
+						<li><a target="_blank"
+								href="https://nakashimmer.github.io/showcase/JS/calculate/maimai/index.html">500px競争</a></li>
+						<li><a target="_blank"
+								href="https://nakashimmer.github.io/showcase/JS/deviceAccess/webaudio/synthesizer/index.html">シンセ</a>
+						</li>
+						<li><a target="_blank" href="https://nakashimmer.github.io/showcase/JS/deviceAccess/gps/index.html">GPS</a>
+						</li>
+						<li><a target="_blank"
+								href="https://nakashimmer.github.io/showcase/JS/deviceAccess/speechSynthesis/recognition/index.html">テキスト読上と音声認識</a>(要マイク)
+						</li>
+						<li><a target="_blank" href="https://games.yahoo.co.jp/play/">Yahoo!かんたんゲーム</a></li>
+						<li><a target="_blank" href="https://www.google.com/doodles?q=interactive">Google Doodles</a></li>
+						<li><a target="_blank" href="https://www.google.com/doodles/roswells-66th-anniversary">UFO</a></li>
+					</ol>
+				</div>
+				<div>
+					<h2>1. 製作準備・復習</h2>
+					<ol>
+						<li><a target="_blank" href="2_finish/1/1-2.html">1-2</a></li>
+					</ol>
+				</div>
+				<div>
+					<h2>2. JavaScript</h2>
+					<ol>
+						<li><a target="_blank" href="2_finish/2/2-2.html">2-2</a></li>
+						<li><a target="_blank" href="2_finish/2/2-3.html">2-3</a></li>
+						<li><a target="_blank" href="2_finish/2/2-4.html">2-4</a></li>
+						<li><a target="_blank" href="2_finish/2/2-5-1.html">2-5-1</a></li>
+						<li><a target="_blank" href="2_finish/2/2-5-2.html">2-5-2</a></li>
+						<li><a target="_blank" href="2_finish/2/2-6.html">2-6</a></li>
+					</ol>
+				</div>
+				<div>
+					<h2>3. Date,Math</h2>
+					<ol>
+						<li><a target="_blank" href="2_finish/3/3-1-1.html">3-1-1</a></li>
+						<li><a target="_blank" href="2_finish/3/3-1-2.html">3-1-2</a></li>
+						<li><a target="_blank" href="2_finish/3/3-2-1.html">3-2-1</a></li>
+						<li><a target="_blank" href="2_finish/3/3-2-3.html">3-2-3</a></li>
+					</ol>
+				</div>
+				<div>
+					<h2>4. Canvas(2d)</h2>
+					<ol>
+						<li><a target="_blank" href="2_finish/4/4-1.html">4-1</a></li>
+						<li><a target="_blank" href="2_finish/4/4-2-1.html">4-2-1</a></li>
+						<li><a target="_blank" href="2_finish/4/4-2-2.html">4-2-2</a></li>
+						<li><a target="_blank" href="2_finish/4/4-2-3.html">4-2-3</a></li>
+						<li><a target="_blank" href="2_finish/4/4-2-4.html">4-2-4</a></li>
+						<li><a target="_blank" href="2_finish/4/4-2-5.html">4-2-5</a></li>
+						<li><a target="_blank" href="2_finish/4/4-2-6.html">4-2-6</a></li>
+						<li><a target="_blank" href="2_finish/4/4-3.html">4-3</a></li>
+						<li><a target="_blank" href="2_finish/4/4-4.html">4-4</a></li>
+						<li><a target="_blank" href="2_finish/4/image.png">image.png</a></li>
+					</ol>
+				</div>
+				<div>
+					<h2>5. タッチ・重力センサ</h2>
+					<ol>
+						<li><a target="_blank" href="2_finish/5/5-1.html">5-1</a></li>
+						<li><a target="_blank" href="2_finish/5/5-2.html">5-2</a></li>
+						<li><a target="_blank" href="2_finish/5/5-3.html">5-3</a></li>
+					</ol>
+				</div>
+				<div>
+					<h2>6. GeoとStorage</h2>
+					<ol>
+						<li><a target="_blank" href="2_finish/6/6-1.html">6-1</a></li>
+						<li><a target="_blank" href="2_finish/6/6-2.html">6-2</a></li>
+					</ol>
+				</div>
+				<div>
+					<h2>7. マルチメディア</h2>
+					<ol>
+						<li><a target="_blank" href="2_finish/7/7-1.html">7-1</a></li>
+						<li><a target="_blank" href="2_finish/7/7-2.html">7-2</a></li>
+						<li><a target="_blank" href="2_finish/7/audio.mp3">audio.mp3</a></li>
+						<li><a target="_blank" href="2_finish/7/video.m4v">video.m4v</a></li>
+					</ol>
+				</div>
+				<div>
+					<h2>参考URL</h2>
+					<ol>
+						<li><a target="_blank" href=https://ja.monaca.io />monaca</a></li>
+						<li><a target="_blank" href=http://jsdo.it />jsdo.it</a></li>
+						<li><a target="_blank" href="https://www.facebook.com/pg/OUJHTML5/">HTML5勉強会</a></li>
+						<li><a target="_blank" href="https://webtechpromo.org">検定科目はHTML5</a></li>
+						<li><a target="_blank" href="https://www.youtube.com/watch?v=5VQkIOMMV_o">WoT</a></li>
+					</ol>
+				</div>
+			</nav>
+		</div>
+		<footer>
+			<small><a href="http://jsdo.it/nakashimmer/codes">2018 (C) 中島俊治</a></small>
+		</footer>
 	</body>
 </html>
-		
