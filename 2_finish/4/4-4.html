@@ -1,84 +1,82 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>canvasゲーム</title>
-	<meta name="viewport" content="width=320">
-	<style> 
-		*{margin:0; padding:0;}
-		body{text-align:center;}
-		canvas{border:1px solid gray;}
-	</style>
-</head>
-<body>
-	<p><canvas id="canvas" width="320" height="480"></canvas></p>
-	<script>
-		const CANVAS = document.getElementById("canvas"); 
-		const CTX = CANVAS.getContext("2d");
-
-		//変数の設定と初期化
-		const TARGET = {x:250, y:100,dir:1};  	// ターゲット（位置と移動方向）
-		const PLAYER = {x:250, y:400};					// プレイヤー（位置）
-		const BALL = {x:-10, y:-10};					// ボール（位置） 
-		let point = 0;											// 得点
-
-		setInterval(loop,50);
-
-		function loop(){									//アニメ関数
-			myclear();												//画面をクリア
-			mytarget(TARGET.x,TARGET.y);			//TARGETを描画
-			mypoint(point,TARGET.x,TARGET.y);	//得点表示
-			myplayer(PLAYER.x,PLAYER.y);			//PLAYERを描画
-			myball(BALL.x-5,BALL.y);					//BALLを描画
-
-			//移動計算
-			TARGET.x += TARGET.dir;
-			BALL.y -= 5;
-			//壁衝突計算
-			if(TARGET.x < 25 || 295 < TARGET.x){TARGET.dir *= -1;}
-			//得点ゲット
-			if ((100 === BALL.y) && (Math.abs(TARGET.x - BALL.x)<25)){
-				point++; 
+	<head>
+		<meta charset="utf-8">
+		<title>canvasゲーム</title>
+		<meta name="viewport" content="width=322">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
 			}
-		}
 
-		//独自関数
-		function myclear(){
-			CTX.clearRect(0,0,320,480);
-		}
+			body {
+				text-align: center;
+			}
 
-		function mytarget(x,y){
-			CTX.fillStyle = "black";
-			CTX.fillRect(x-25,y-25,50,10);
-		}
+			#canvas {
+				border: 1px solid gray;
+			}
+		</style>
+	</head>
+	<body>
+		<p><canvas id="canvas" width="320" height="480"></canvas></p>
+		<script>
+			const canvas = document.getElementById("canvas");
+			const ctx = canvas.getContext("2d");
 
-		function mypoint(point,x,y){
-			CTX.fillStyle = "black";
-			CTX.font = "20px sans-serif ";
-			CTX.fillText(point,x,y-30);
-		}
+			//変数の設定と初期化
+			const target = { x: 250, y: 100, dir: 1 };  	// ターゲット（位置と移動方向）
+			const player = { x: 250, y: 400 };					// プレイヤー（位置）
+			const ball = { x: -10, y: -10 };						// ボール（位置） 
+			let point = 0;												// 得点
 
-		function myplayer(x,y){
-			CTX.fillStyle = "blue";
-			CTX.fillRect(x-25,y-5,50,10);
-		}
-	
-		function myball(x,y){
-			CTX.fillStyle = "red";		
-			CTX.fillRect(x-5,y-5,10,10);
-		}
+			setInterval(loop, 50);
 
-		//シュートするイベント処理(後述)
-		canvas.addEventListener("mousedown",function(e){
-			BALL.x = PLAYER.x;
-			BALL.y = PLAYER.y; 
-		});
-	
-		//マウスで自分キャラを動かすイベント処理(後述)
-		canvas.addEventListener("mousemove",function(e){
-			const RECT = e.target.getBoundingClientRect();
-			PLAYER.x = e.clientX-RECT.left;
-		});
-	</script>
-</body>
+			function loop() {											//アニメ関数
+				ctx.clearRect(0, 0, 320, 480);					//画面をクリア
+
+				ctx.fillStyle = "black";
+				ctx.fillRect(target.x - 25, target.y - 25, 50, 10);				//targetを描画
+
+				ctx.fillStyle = "black";
+				ctx.font = "20px sans-serif ";
+				ctx.fillText(point, target.x, target.y - 30);					//得点表示
+
+				ctx.fillStyle = "blue";
+				ctx.fillRect(player.x - 25, player.y - 5, 50, 10);				//playerを描画
+
+				ctx.fillStyle = "red";
+				ctx.fillRect(ball.x - 5, ball.y - 5, 10, 10);					//ballを描画
+
+				//移動計算
+				target.x += target.dir;
+				ball.y -= 5;
+				//壁衝突計算
+				if ((target.x < 25) || (295 < target.x)) { target.dir *= -1; }
+				//得点ゲット
+				if ((100 === ball.y) && (Math.abs(target.x - ball.x) < 25)) {
+					point++;
+				}
+			}
+
+			//シュートするイベント処理(後述)
+			canvas.addEventListener(
+				"mousedown",
+				(e) => {
+					ball.x = player.x;
+					ball.y = player.y;
+				}
+			);
+
+			//マウスで自分キャラを動かすイベント処理(後述)
+			canvas.addEventListener(
+				"mousemove",
+				(e) => {
+					const rect = e.target.getBoundingClientRect();
+					player.x = e.clientX - rect.left;
+				}
+			);
+		</script>
+	</body>
 </html>
