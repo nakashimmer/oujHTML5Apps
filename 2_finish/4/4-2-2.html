@@ -13,20 +13,20 @@
 		<p><canvas id="canvas" width="300" height="300"></canvas></p>
 		
 		<script>
-			const CANVAS = document.getElementById("canvas");
-			const CTX = CANVAS.getContext("2d");
+			const canvas = document.getElementById("canvas");
+			const ctx = canvas.getContext("2d");
 		
 			// ここに図形の描画のコードを記述します。
-			CTX.fillStyle = "red";								//塗色
-			CTX.fillRect(0,0,100,100);						//矩形(x,y,幅,高さ)
+			ctx.fillStyle = "red";								//塗色
+			ctx.fillRect(0,0,100,100);						//矩形(x,y,幅,高さ)
 
-			CTX.beginPath();											//パス開始
-			CTX.moveTo(150,0);										//開始点の(x,y)座標
-			CTX.lineTo(100,100);									//頂点の(x,y)座標
-			CTX.lineTo(200,100); 									//頂点の(x,y)座標
-			CTX.closePath(); 										//パス終了
-			CTX.fillStyle = "green";
-			CTX.fill();													//塗る
+			ctx.beginPath();											//パス開始
+			ctx.moveTo(150,0);										//開始点の(x,y)座標
+			ctx.lineTo(100,100);									//頂点の(x,y)座標
+			ctx.lineTo(200,100); 									//頂点の(x,y)座標
+			ctx.closePath(); 										//パス終了
+			ctx.fillStyle = "green";
+			ctx.fill();													//塗る
 		</script>
 	</body>
 </html>

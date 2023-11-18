@@ -13,29 +13,29 @@
 		<p><canvas id="canvas" width="600" height="600"></canvas></p>
 
 		<script>
-			const CANVAS = document.getElementById("canvas");
-			const CTX = CANVAS.getContext("2d");
+			const canvas = document.getElementById("canvas");
+			const ctx = canvas.getContext("2d");
 		
-			const OBAKE = {x:300, y:300, dx:1, dy:1, s:100};
+			const obake = {x:300, y:300, dx:1, dy:1, s:100};
 		
-			const IMG=new Image();
-			IMG.src="image.png";
+			const img=new Image();
+			img.src="image.png";
 		
 			setInterval(loop, 50);
 		
 			function loop(){
 		
 				//①消去
-				CTX.clearRect(0, 0, 600, 600);
+				ctx.clearRect(0, 0, 600, 600);
 		
 				//②描画
-				CTX.drawImage(IMG, OBAKE.x, OBAKE.y, OBAKE.s, OBAKE.s);
+				ctx.drawImage(img, obake.x, obake.y, obake.s, obake.s);
 		
 				//③計算
-				OBAKE.x += OBAKE.dx;
-				OBAKE.y += OBAKE.dy;
-				if(OBAKE.x<0 || 500<OBAKE.x){OBAKE.dx *= -1;}
-				if(OBAKE.y<0 || 500<OBAKE.y){OBAKE.dy *= -1;}
+				obake.x += obake.dx;
+				obake.y += obake.dy;
+				if(obake.x<0 || 500<obake.x){obake.dx *= -1;}
+				if(obake.y<0 || 500<obake.y){obake.dy *= -1;}
 			}
 		</script>
 	</body>

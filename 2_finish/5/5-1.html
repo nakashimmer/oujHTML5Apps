@@ -12,18 +12,18 @@
 	<p><canvas id="canvas" width="300" height="300"></canvas></p>
 	
 	<script>
-		const CANVAS=document.getElementById("canvas");
-		const CTX=CANVAS.getContext("2d");
+		const canvas=document.getElementById("canvas");
+		const ctx=canvas.getContext("2d");
 		const POS={x:150,y:150};
 	
 		canvas.addEventListener(
 			"mousemove",
 			(e)=>{
-				const RECT = e.target.getBoundingClientRect();
-				POS.x = e.clientX - RECT.left;
-				POS.y = e.clientY - RECT.top;
-				CTX.fillStyle="red";
-				CTX.fillRect(POS.x-2, POS.y-2, 4, 4);
+				const rect = e.target.getBoundingClientRect();
+				POS.x = e.clientX - rect.left;
+				POS.y = e.clientY - rect.top;
+				ctx.fillStyle="red";
+				ctx.fillRect(POS.x-2, POS.y-2, 4, 4);
 			}
 		);
 	</script>

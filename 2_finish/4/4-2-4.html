@@ -13,36 +13,36 @@
 		<p><canvas id="canvas" width="300" height="300"></canvas></p>
 		
 		<script>
-			const CANVAS = document.getElementById("canvas");
-			const CTX = CANVAS.getContext("2d");
+			const canvas = document.getElementById("canvas");
+			const ctx = canvas.getContext("2d");
 		
 			// ここに図形の描画のコードを記述します。
-			CTX.fillStyle = "red";								//塗色
-			CTX.fillRect(0,0,100,100);						//矩形(x,y,幅,高さ)
+			ctx.fillStyle = "red";								//塗色
+			ctx.fillRect(0,0,100,100);						//矩形(x,y,幅,高さ)
 
-			CTX.beginPath();											//パス開始
-			CTX.moveTo(150,0);										//開始点の(x,y)座標
-			CTX.lineTo(100,100);									//頂点の(x,y)座標
-			CTX.lineTo(200,100); 									//頂点の(x,y)座標
-			CTX.closePath(); 										//パス終了
-			CTX.fillStyle = "green";
-			CTX.fill();													//塗る
+			ctx.beginPath();											//パス開始
+			ctx.moveTo(150,0);										//開始点の(x,y)座標
+			ctx.lineTo(100,100);									//頂点の(x,y)座標
+			ctx.lineTo(200,100); 									//頂点の(x,y)座標
+			ctx.closePath(); 										//パス終了
+			ctx.fillStyle = "green";
+			ctx.fill();													//塗る
 
-			CTX.beginPath();
-			CTX.moveTo(200,0);
-			CTX.lineTo(300,100);
-			CTX.lineWidth = 1;										//線の幅
-			CTX.strokeStyle = "blue";							//線の色
-			CTX.stroke();												//線を引く
+			ctx.beginPath();
+			ctx.moveTo(200,0);
+			ctx.lineTo(300,100);
+			ctx.lineWidth = 1;										//線の幅
+			ctx.strokeStyle = "blue";							//線の色
+			ctx.stroke();												//線を引く
 
 			let angle1 = 10/180 * Math.PI ;
 			let angle2 = 200/180 * Math.PI ; 
-			CTX.beginPath();
-			CTX.moveTo(50,150);
-			CTX.arc(50, 150, 40, angle1, angle2, false);		//円弧のパス
-			CTX.closePath();
-			CTX.fillStyle = "skyblue";
-			CTX.fill();
+			ctx.beginPath();
+			ctx.moveTo(50,150);
+			ctx.arc(50, 150, 40, angle1, angle2, false);		//円弧のパス
+			ctx.closePath();
+			ctx.fillStyle = "skyblue";
+			ctx.fill();
 		</script>
 	</body>
 </html>

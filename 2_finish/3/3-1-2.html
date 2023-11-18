@@ -17,14 +17,14 @@
 			setInterval(myclock,1000);
 
 			function myclock(){
-				const NOW = new Date();
-				let y = NOW.getFullYear();								//年
-				let m = NOW.getMonth()+1;									//月
-				let d = NOW.getDate();										//日
-				let w = NOW.getDay();											//曜日
-				let h = NOW.getHours();										//時
-				let i = NOW.getMinutes();									//分
-				let s = NOW.getSeconds();									//秒
+				const now = new Date();
+				let y = now.getFullYear();								//年
+				let m = now.getMonth()+1;									//月
+				let d = now.getDate();										//日
+				let w = now.getDay();											//曜日
+				let h = now.getHours();										//時
+				let i = now.getMinutes();									//分
+				let s = now.getSeconds();									//秒
 			
 				DATE1.innerHTML = y+"年"+m+"月"+d+"日"+h+"時"+i+"分"+s+"秒";
 			}

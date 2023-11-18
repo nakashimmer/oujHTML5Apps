@@ -13,8 +13,8 @@
 <body>
 	<p><canvas id="canvas" width="320" height="480"></canvas></p>
 	<script>
-		const CANVAS = document.getElementById("canvas"); 
-		const CTX = CANVAS.getContext("2d");
+		const canvas = document.getElementById("canvas"); 
+		const ctx = canvas.getContext("2d");
 
 		//変数の設定と初期化
 		const TARGET = {x:250, y:100,dir:1};  	// ターゲット（位置と移動方向）
@@ -69,7 +69,7 @@
 		}
 
 		//シュートするイベント処理(後述)
-		CANVAS.addEventListener(
+		canvas.addEventListener(
 			"mousedown",
 			(e)=>{
 				BALL.x = PLAYER.x;
@@ -78,11 +78,11 @@
 		);
 	
 		//マウスで自分キャラを動かすイベント処理(後述)
-		CANVAS.addEventListener(
+		canvas.addEventListener(
 			"mousemove",
 			(e)=>{
-				const RECT = e.target.getBoundingClientRect();
-				PLAYER.x = e.clientX-RECT.left;
+				const rect = e.target.getBoundingClientRect();
+				PLAYER.x = e.clientX-rect.left;
 			}
 		);
 	</script>
