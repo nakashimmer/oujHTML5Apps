@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>5-3</title>
+	<meta name="viewport" content="width=320">
+	<style> 
+		#canvas1{border:1px solid gray;}
+	</style>
+</head>
+<body>
+	<p><canvas id="canvas1" width="300" height="300" onclick="btn1();"></canvas></p>
+	<script>
+		const canvas1 = document.getElementById("canvas1");
+		const ctx = canvas1.getContext("2d");
+
+		// ここに図形の描画のコードを記述します。
+
+		const pos = { x: 150, y: 150, z: 0 };
+		let rock = true;
+		function btn1() {
+			if (rock && DeviceMotionEvent.requestPermission) {
+				rock = false;
+				DeviceMotionEvent.requestPermission()
+					.then(permissionState => {
+						if (permissionState === 'granted') {
+							★{
+								pos.x += ★;
+								pos.y -= ★;
+								pos.z += ★;
+								if (pos.x < 0) { pos.x = 0; }
+								if (pos.y < 0) { pos.y = 0; }
+								if (300 < pos.x) { pos.x = 300; }
+								if (300 < pos.y) { pos.y = 300; }
+								ctx.fillStyle = "red";
+								ctx.fillRect(pos.x - 2, pos.y - 2, 4, 4);
+							});
+						}
+					}
+					)
+			}
+		}
+	</script>
+</body>
+</html>
