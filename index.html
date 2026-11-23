@@ -1,263 +1,526 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 	<head>
-		<meta charset=utf-8>
-		<title>放送大学「HTML5アプリケーション」</title>
-		<meta name="viewport" content="width=device-width">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>HTML5アプリケーション授業 リンク集 | なかしまぁ先生の未来Web教室</title>
 		<style>
-			@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+			:root {
+				--bg-dark: #0b1120;
+				--bg-card: #1e293b;
+				--bg-card-hover: #27354f;
+				--text-main: #f8fafc;
+				--text-muted: #94a3b8;
+				--accent-blue: #38bdf8;
+				--accent-html: #e34f26;
+				--accent-css: #1572b6;
+				--accent-js: #f7df1e;
+				--border-color: rgba(255, 255, 255, 0.1);
+			}
 
 			* {
+				box-sizing: border-box;
 				margin: 0;
 				padding: 0;
-				margin: 0;
-				padding: 0;
-				line-height: 1.5em;
-				font-size: 16px;
-				text-decoration: none;
-				color: gray;
-				font-family: 'Noto Sans Japanese', sans-serif;
-				/* list-style-position: inside;*/
-				list-style-type: none;
 			}
 
-			a {
-				color: gray;
-				padding: 0.1em;
+			body {
+				font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+				background-color: var(--bg-dark);
+				color: var(--text-main);
+				line-height: 1.6;
+				padding-bottom: 4rem;
 			}
 
-			a:visited {
-				color: gray;
-			}
-
-			small a,
-			small a:visited {
-				color: white;
-			}
-
-			h1 {
-				background-color: blue;
-				color: white;
-				font-size: 1.4em;
+			/* ヘッダーエリア */
+			header {
+				position: relative;
+				background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+				/* 画像を使用する場合は以下のコメントを外してパスを指定してください */
+				/* background: linear-gradient(rgba(11, 17, 32, 0.75), rgba(11, 17, 32, 0.9)), url('header.jpg') center/cover no-repeat; */
+				padding: 4rem 1.5rem;
 				text-align: center;
-				padding: 0.5em;
+				border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+				overflow: hidden;
 			}
 
-			nav {
+			/* 背景のサイバー風グリッド装飾 */
+			header::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background-image:
+					linear-gradient(to right, rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+					linear-gradient(to bottom, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
+				background-size: 32px 32px;
+				pointer-events: none;
+			}
+
+			.header-content {
+				position: relative;
+				max-width: 900px;
+				margin: 0 auto;
+			}
+
+			.tech-badges {
+				display: flex;
+				justify-content: center;
+				gap: 0.75rem;
+				margin-bottom: 1.25rem;
+			}
+
+			.tech-badge {
+				font-size: 0.8rem;
+				font-weight: 800;
+				padding: 0.25rem 0.75rem;
+				border-radius: 9999px;
+				letter-spacing: 0.05em;
+			}
+
+			.badge-html {
+				background: rgba(227, 79, 38, 0.2);
+				color: #ff7854;
+				border: 1px solid var(--accent-html);
+			}
+
+			.badge-css {
+				background: rgba(21, 114, 182, 0.2);
+				color: #56b4ff;
+				border: 1px solid var(--accent-css);
+			}
+
+			.badge-js {
+				background: rgba(247, 223, 30, 0.15);
+				color: var(--accent-js);
+				border: 1px solid var(--accent-js);
+			}
+
+			header h1 {
+				font-size: clamp(1.75rem, 4vw, 2.75rem);
+				font-weight: 800;
+				letter-spacing: 0.02em;
+				margin-bottom: 0.75rem;
+				background: linear-gradient(to right, #ffffff, #38bdf8);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+
+			header p {
+				color: var(--text-muted);
+				font-size: 1rem;
+			}
+
+			/* メインコンテナ */
+			main {
+				max-width: 1100px;
+				margin: 0 auto;
+				padding: 2rem 1.5rem 0;
+			}
+
+			/* セクション見出し */
+			section {
+				margin-bottom: 3.5rem;
+			}
+
+			.section-header {
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+				margin-bottom: 1.25rem;
+				padding-bottom: 0.5rem;
+				border-bottom: 2px solid var(--border-color);
+			}
+
+			.section-tag {
+				background: var(--accent-blue);
+				color: #0b1120;
+				font-size: 0.75rem;
+				font-weight: 800;
+				padding: 0.2rem 0.6rem;
+				border-radius: 4px;
+			}
+
+			.section-header h2 {
+				font-size: 1.35rem;
+				font-weight: 700;
+				color: #f1f5f9;
+			}
+
+			.sub-heading {
+				font-size: 1rem;
+				color: var(--accent-blue);
+				margin: 1.5rem 0 0.75rem;
+				font-weight: 600;
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+			}
+
+			/* カードグリッド */
+			.card-grid {
 				display: grid;
-				grid-template-columns: 1fr 1fr 1fr 1fr;
+				grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+				gap: 1rem;
 			}
 
-			div {
-				border: 1px dotted gray;
-				padding: 0em;
+			.card-grid.wide {
+				grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 			}
 
-			h2 {
-				background-color: gray;
-				color: white;
-				padding: 0.5em;
+			/* リンクカード */
+			.link-card {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				background: var(--bg-card);
+				border: 1px solid var(--border-color);
+				border-radius: 12px;
+				padding: 1.1rem 1.25rem;
+				text-decoration: none;
+				color: var(--text-main);
+				transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+				position: relative;
+				overflow: hidden;
 			}
 
-			ol {
-				margin: 1em;
+			.link-card:hover {
+				background: var(--bg-card-hover);
+				border-color: var(--accent-blue);
+				transform: translateY(-3px);
+				box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 0 15px rgba(56, 189, 248, 0.15);
+			}
+
+			.card-icon {
+				font-size: 1.75rem;
+				width: 48px;
+				height: 48px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: rgba(15, 23, 42, 0.6);
+				border-radius: 10px;
+				flex-shrink: 0;
+			}
+
+			.card-body {
+				flex: 1;
+				min-width: 0;
+			}
+
+			.card-category {
+				font-size: 0.7rem;
+				color: var(--accent-blue);
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				margin-bottom: 0.2rem;
+				display: block;
+			}
+
+			.card-title {
+				font-size: 1rem;
+				font-weight: 600;
+				color: #f8fafc;
+				display: block;
+			}
+
+			.card-arrow {
+				color: var(--text-muted);
+				font-size: 1.1rem;
+				transition: transform 0.2s ease, color 0.2s ease;
+			}
+
+			.link-card:hover .card-arrow {
+				color: var(--accent-blue);
+				transform: translateX(4px);
+			}
+
+			/* 強調カード（演習サイト「練習くん」など） */
+			.link-card.featured {
+				background: linear-gradient(135deg, #88293b 0%, #882554 100%);
+				border: 1px solid rgba(248, 189, 56, 0.4);
 			}
 
 			footer {
-				background-color: blue;
-				padding: 0.5em;
 				text-align: center;
-			}
-
-			footer small,
-			footer a {
-				color: white;
-			}
-
-			ol.dec li {
-				list-style-type: decimal;
-				margin-left: 1.5em;
-			}
-
-			.bold {
-				font-weight: bold;
-			}
-
-			div:first-of-type div:nth-of-type(2) {
-				grid-column: 2/5;
-			}
-
-			.clm {
-				columns: 3;
-				list-style: decimal;
-			}
-
-			a:hover {
-				background-color: lime;
-				color: white;
-			}
-
-			@media(max-width:800px) {
-				nav {
-					display: block;
-				}
-
-				.clm {
-					columns: 2;
-				}
-			}
-
-			@media(max-width:500px) {
-				.clm {
-					columns: 1;
-				}
-			}
-
-			/*スクロールバーを非表示 (除Firefox)*/
-			::-webkit-scrollbar {
-				display: none;
-			}
-
-			* {
-				-ms-overflow-style: none;
+				margin-top: 4rem;
+				padding-top: 2rem;
+				border-top: 1px solid var(--border-color);
+				color: var(--text-muted);
+				font-size: 0.85rem;
 			}
 		</style>
 	</head>
 	<body>
 		<header>
-			<h1>放送大学面接授業「HTML5アプリケーション」</h1>
+			<div class="header-content">
+				<div class="tech-badges">
+					<span class="tech-badge badge-html">HTML5</span>
+					<span class="tech-badge badge-css">CSS3</span>
+					<span class="tech-badge badge-js">JavaScript</span>
+				</div>
+				<h1>HTML5アプリケーション授業 リンク集</h1>
+				<p>実際に制作しながら、HTML５の理解と、可能性を体験する面接授業</p>
+			</div>
 		</header>
-		<div id="wrap">
-			<nav>
-				<div>
-					<h2>はじめに</h2>
-					<ol class="dec">
-						<li><a href="https://github.com/nakashimmer/oujHTML5Apps/archive/master.zip" class="link">サンプルZIPダウンロード</a>
-						</li>
-						<li><a href="https://vscode.dev/" class="link">Web版VSCode</a></li>
-						<li><a href="https://note.com/_nakashimmer_/n/n8a5563d15fea" class="link">VSCodeの扱い方</a></li>
-						<li><a class="link" target="_blank" href="https://nakashimmer.com/renshuKun/?course=ouj-HTML5App">練習くん</a></li>
-					</ol>
+		<main>
+			<!-- セクション1: オリエンテーション & 演習環境 -->
+			<section>
+				<div class="section-header">
+					<span class="section-tag">STEP 0</span>
+					<h2>オリエンテーション &amp; 開発環境</h2>
 				</div>
-				<div>
-					<h2>オリエンテーション</h2>
-					<ol class="clm dec">
-						<li><input value="chrome://dino"></li>
-						<li><a target="_blank" href="https://nakashimmer.github.io/showcase/JS/calculate/kesan/index.html">計算機</a>
-						</li>
-						<li><a target="_blank" href="https://nakashimmer.github.io/showcase/JS/calculate/bmi/index.html">BMI</a>
-						</li>
-						<li><a target="_blank"
-								href="https://nakashimmer.github.io/showcase/JS/3dGraphicsEffects/canvas/physics/parabola/index2.html">放物線</a>
-						</li>
-						<li><a target="_blank"
-								href="https://nakashimmer.github.io/showcase/JS/3dGraphicsEffects/canvas/touch/index.html">ゲーム</a></li>
-						<li><a target="_blank"
-								href="https://nakashimmer.github.io/showcase/JS/calculate/maimai/index.html">500px競争</a></li>
-						<li><a target="_blank"
-								href="https://nakashimmer.github.io/showcase/JS/deviceAccess/webaudio/synthesizer/index.html">シンセ</a>
-						</li>
-						<li><a target="_blank" href="https://nakashimmer.github.io/showcase/JS/deviceAccess/gps/index.html">GPS</a>
-						</li>
-						<li><a target="_blank"
-								href="https://nakashimmer.github.io/showcase/JS/deviceAccess/speechSynthesis/recognition/index.html">テキスト読上と音声認識</a>(要マイク)
-						</li>
-						<li><a target="_blank" href="https://games.yahoo.co.jp/play/">Yahoo!かんたんゲーム</a></li>
-						<li><a target="_blank" href="https://www.google.com/doodles?q=interactive">Google Doodles</a></li>
-						<li><a target="_blank" href="https://www.google.com/doodles/roswells-66th-anniversary">UFO</a></li>
-					</ol>
+				<div class="sub-heading">1p 授業内容</div>
+				<div class="card-grid wide">
+					<a href="https://momdo.github.io/html/introduction.html#is-this-html5?" class="link-card">
+						<div class="card-icon">🌐</div>
+						<div class="card-body">
+							<span class="card-category">Keyword</span>
+							<span class="card-title">モダンなWeb技術を示すキーワード</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://note.com/_nakashimmer_/n/n05c9252e98bc?app_launch=false" class="link-card">
+						<div class="card-icon">💡</div>
+						<div class="card-body">
+							<span class="card-category">Keyword</span>
+							<span class="card-title">あなただったら、どんなWebアプリを作りますか？</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
 				</div>
-				<div>
-					<h2>1. 製作準備・復習</h2>
-					<ol>
-						<li><a target="_blank" href="2_finish/1/1-2.html">1-2</a></li>
-					</ol>
+				<div class="sub-heading">2p. 2.演習サイト「練習くん」</div>
+				<div class="card-grid wide">
+					<a href="https://nakashimmer.sakura.ne.jp/renshuKun/index.php?course=ouj-HTML5App" class="link-card featured">
+						<div class="card-icon">🚀</div>
+						<div class="card-body">
+							<span class="card-category">Main Tool</span>
+							<span class="card-title">練習くん</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://note.com/_nakashimmer_/n/n8a5563d15fea" class="link-card">
+						<div class="card-icon">💻</div>
+						<div class="card-body">
+							<span class="card-category">Editor Setup</span>
+							<span class="card-title">VSCodeの扱い方</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
 				</div>
-				<div>
-					<h2>2. JavaScript</h2>
-					<ol>
-						<li><a target="_blank" href="2_finish/2/2-2.html">2-2</a></li>
-						<li><a target="_blank" href="2_finish/2/2-3.html">2-3</a></li>
-						<li><a target="_blank" href="2_finish/2/2-4.html">2-4</a></li>
-						<li><a target="_blank" href="2_finish/2/2-5-1.html">2-5-1</a></li>
-						<li><a target="_blank" href="2_finish/2/2-5-2.html">2-5-2</a></li>
-						<li><a target="_blank" href="2_finish/2/2-6.html">2-6</a></li>
-						<li><a target="_blank" href="https://note.com/_nakashimmer_/n/nd04763808d55">開発者ツール：JavaScriptのお助けツール
-</a></li>
-						<li><a target="_blank" href="https://note.com/_nakashimmer_/n/ncb49a09c8211">作ったHTML5がうまく動作しない時どうするか？
-</a></li>
-					</ol>
+			</section>
+			<!-- セクション2: 事前知識（サンプルアプリ体験） -->
+			<section>
+				<div class="section-header">
+					<span class="section-tag">STEP 1</span>
+					<h2>１．事前知識（HTML5でできること）</h2>
 				</div>
-				<div>
-					<h2>3. Date,Math</h2>
-					<ol>
-						<li><a target="_blank" href="2_finish/3/3-1-1.html">3-1-1</a></li>
-						<li><a target="_blank" href="2_finish/3/3-1-2.html">3-1-2</a></li>
-						<li><a target="_blank" href="2_finish/3/3-2-1.html">3-2-1</a></li>
-						<li><a target="_blank" href="2_finish/3/3-2-3.html">3-2-3</a></li>
-					</ol>
+				<div class="card-grid">
+					<a href="https://momdo.github.io/html/introduction.html#is-this-html5?" class="link-card">
+						<div class="card-icon">❓</div>
+						<div class="card-body">
+							<span class="card-category">Check</span>
+							<span class="card-title">これはHTML5か</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://www.w3.org/ja/press-releases/2014/html5-rec/" class="link-card">
+						<div class="card-icon">📜</div>
+						<div class="card-body">
+							<span class="card-category">Standard</span>
+							<span class="card-title">HTML５勧告</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://nakashimmer.github.io/showcase/JS/calculate/kesan/index.html" class="link-card">
+						<div class="card-icon">🧮</div>
+						<div class="card-body">
+							<span class="card-category">App Demo 02</span>
+							<span class="card-title">2. 計算機</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://nakashimmer.github.io/showcase/JS/calculate/bmi/index.html" class="link-card">
+						<div class="card-icon">⚖️</div>
+						<div class="card-body">
+							<span class="card-category">App Demo 03</span>
+							<span class="card-title">3. BMI</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://nakashimmer.github.io/showcase/JS/3dGraphicsEffects/canvas/physics/parabola/index2.html"
+						class="link-card">
+						<div class="card-icon">📈</div>
+						<div class="card-body">
+							<span class="card-category">Canvas / Math 04</span>
+							<span class="card-title">4.放物線</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://nakashimmer.github.io/showcase/JS/3dGraphicsEffects/canvas/touch/index.html"
+						class="link-card">
+						<div class="card-icon">🎮</div>
+						<div class="card-body">
+							<span class="card-category">Game 05</span>
+							<span class="card-title">5. ゲーム</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://nakashimmer.github.io/showcase/JS/calculate/maimai/index.html" class="link-card">
+						<div class="card-icon">⏱️</div>
+						<div class="card-body">
+							<span class="card-category">Game 06</span>
+							<span class="card-title">6. 500px競争</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://nakashimmer.github.io/showcase/JS/deviceAccess/webaudio/synthesizer/index.html"
+						class="link-card">
+						<div class="card-icon">🎹</div>
+						<div class="card-body">
+							<span class="card-category">Web Audio 07</span>
+							<span class="card-title">7. シンセ</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://nakashimmer.github.io/showcase/JS/deviceAccess/gps/index.html" class="link-card">
+						<div class="card-icon">📍</div>
+						<div class="card-body">
+							<span class="card-category">Geolocation 08</span>
+							<span class="card-title">8. GPS</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://nakashimmer.github.io/showcase/JS/deviceAccess/speechSynthesis/recognition/index.html"
+						class="link-card">
+						<div class="card-icon">🎙️</div>
+						<div class="card-body">
+							<span class="card-category">Web Speech 09</span>
+							<span class="card-title">9. テキスト読上と音声認識</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://games.yahoo.co.jp/play/" class="link-card">
+						<div class="card-icon">🕹️</div>
+						<div class="card-body">
+							<span class="card-category">Web Game 10</span>
+							<span class="card-title">10. Yahoo!かんたんゲーム</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://sites.google.com/site/populardoodlegames/home" class="link-card">
+						<div class="card-icon">🎨</div>
+						<div class="card-body">
+							<span class="card-category">Interactive 11</span>
+							<span class="card-title">11. Google Doodles</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://www.google.com/doodles/roswells-66th-anniversary" class="link-card">
+						<div class="card-icon">🛸</div>
+						<div class="card-body">
+							<span class="card-category">Animation 12</span>
+							<span class="card-title">12. UFO</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://nakashimmer.github.io/showcase/JS/calculate/textCount/index.html" class="link-card">
+						<div class="card-icon">🔢</div>
+						<div class="card-body">
+							<span class="card-category">Utility 13</span>
+							<span class="card-title">13. 文字数カウント</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
 				</div>
-				<div>
-					<h2>4. Canvas(2d)</h2>
-					<ol>
-						<li><a target="_blank" href="2_finish/4/4-1.html">4-1</a></li>
-						<li><a target="_blank" href="2_finish/4/4-2-1.html">4-2-1</a></li>
-						<li><a target="_blank" href="2_finish/4/4-2-2.html">4-2-2</a></li>
-						<li><a target="_blank" href="2_finish/4/4-2-3.html">4-2-3</a></li>
-						<li><a target="_blank" href="2_finish/4/4-2-4.html">4-2-4</a></li>
-						<li><a target="_blank" href="2_finish/4/4-2-5.html">4-2-5</a></li>
-						<li><a target="_blank" href="2_finish/4/4-2-6.html">4-2-6</a></li>
-						<li><a target="_blank" href="2_finish/4/4-3.html">4-3</a></li>
-						<li><a target="_blank" href="2_finish/4/4-4.html">4-4</a></li>
-						<li><a target="_blank" href="2_finish/4/image.png">image.png</a></li>
-					</ol>
+			</section>
+			<!-- セクション3: デベロッパツールとデバッグ -->
+			<section>
+				<div class="section-header">
+					<span class="section-tag">STEP 2</span>
+					<h2>2. アプリケーションの入力・操作・出力</h2>
 				</div>
-				<div>
-					<h2>5. タッチ・重力センサ</h2>
-					<ol>
-						<li><a target="_blank" href="2_finish/5/5-1.html">5-1</a></li>
-						<li><a target="_blank" href="2_finish/5/5-2.html">5-2</a></li>
-						<li>
-							旧仕様：
-							<a target="_blank" href="2_finish/5/5-3-old.html">5-3</a>(1)</a>｜
-							<a target="_blank" href="1_start/5/5-3-old.html">テンプレ</a>(1)</a>
-						</li>
-						<li>
-							iOS用：
-							<a target="_blank" href="2_finish/5/5-3.html">5-3</a>(2)｜
-							<a target="_blank" href="1_start/5/5-3.html">テンプレ</a>(2)|
-							<a target="_blank" href="5-3.pdf">5-3修正PDF</a>
-						</li>
-					</ol>
+				<div class="sub-heading">7p 2.7.デべロッパツール</div>
+				<div class="card-grid wide">
+					<a href="https://note.com/_nakashimmer_/n/nd04763808d55" class="link-card">
+						<div class="card-icon">🛠️</div>
+						<div class="card-body">
+							<span class="card-category">DevTools</span>
+							<span class="card-title">2.7 開発者ツール：JavaScriptのお助けツール</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://note.com/_nakashimmer_/n/ncb49a09c8211" class="link-card">
+						<div class="card-icon">🐛</div>
+						<div class="card-body">
+							<span class="card-category">Troubleshooting</span>
+							<span class="card-title">作ったHTML5がうまく動作しない時どうするか？</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
 				</div>
-				<div>
-					<h2>6. GeoとStorage</h2>
-					<ol>
-						<li><a target="_blank" href="2_finish/6/6-1.html">6-1</a></li>
-						<li><a target="_blank" href="2_finish/6/6-2.html">6-2</a></li>
-					</ol>
+			</section>
+			<!-- セクション4: 参考資料・学習リソース -->
+			<section>
+				<div class="section-header">
+					<span class="section-tag">STEP 3</span>
+					<h2>16p 最後（リファレンス・発展学習）</h2>
 				</div>
-				<div>
-					<h2>7. マルチメディア</h2>
-					<ol>
-						<li><a target="_blank" href="2_finish/7/7-1.html">7-1</a></li>
-						<li><a target="_blank" href="2_finish/7/7-2.html">7-2</a></li>
-						<li><a target="_blank" href="2_finish/7/audio.mp3">audio.mp3</a></li>
-						<li><a target="_blank" href="2_finish/7/video.m4v">video.m4v</a></li>
-					</ol>
+				<div class="card-grid wide">
+					<a href="https://developer.mozilla.org/ja/" class="link-card">
+						<div class="card-icon">📚</div>
+						<div class="card-body">
+							<span class="card-category">Official Docs</span>
+							<span class="card-title">MDN ウェブドキュメント</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://www.amazon.co.jp/dp/4802096607/" class="link-card">
+						<div class="card-icon">📖</div>
+						<div class="card-body">
+							<span class="card-category">Text Material</span>
+							<span class="card-title">なかしまぁ先生のHTML5教室(テキスト)</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://www.amazon.co.jp/dp/B0CKDNFPCH" class="link-card">
+						<div class="card-icon">📖</div>
+						<div class="card-body">
+							<span class="card-category">Text Material</span>
+							<span class="card-title">なかしまぁ先生のCSSアニメーション入門</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://www.amazon.co.jp/dp/4816373195" class="link-card">
+						<div class="card-icon">📖</div>
+						<div class="card-body">
+							<span class="card-category">Text Material</span>
+							<span class="card-title">ゼロから覚えるHTML・CSSとWebデザイン魔法の教科書 </span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://www.amazon.co.jp/dp/4824612535" class="link-card">
+						<div class="card-icon">📖</div>
+						<div class="card-body">
+							<span class="card-category">Text Material</span>
+							<span class="card-title">なかしまぁ先生のJavaScriptでCanvasゲームを作ろう</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
+					<a href="https://www.udemy.com/courses/search/?src=ukw&q=%22%E3%81%AA%E3%81%8B%E3%81%97%E3%81%BE%E3%81%81%E5%85%88%E7%94%9F%22"
+						class="link-card">
+						<div class="card-icon">🎬</div>
+						<div class="card-body">
+							<span class="card-category">Video Course</span>
+							<span class="card-title">なかしまぁ先生のHTML5教室(Udemy)</span>
+						</div>
+						<span class="card-arrow">→</span>
+					</a>
 				</div>
-				<div>
-					<h2>参考URL</h2>
-					<ol>
-						<li><a target="_blank" href=https://ja.monaca.io />monaca</a></li>
-						<li><a target="_blank" href="https://www.facebook.com/pg/OUJHTML5/">HTML5勉強会</a></li>
-						<li><a target="_blank" href="https://www.youtube.com/watch?v=5VQkIOMMV_o">WoT</a></li>
-					</ol>
-				</div>
-			</nav>
-		</div>
+			</section>
+		</main>
 		<footer>
-			<small><a href="http://jsdo.it/nakashimmer/codes">2018 (C) 中島俊治</a></small>
+			<p><small>copyright なかしまぁ先生</small></p>
 		</footer>
 	</body>
 </html>
